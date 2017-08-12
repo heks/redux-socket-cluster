@@ -53,7 +53,7 @@
     "socketcluster-client": "^5.3.0"
   },
   "dependencies": {
-    "es6-promisify": "^4.1.0",
+    "es6-promisify": "git@github.com:heks/es6-promisify.git",
     "prop-types": "^15.5.10"
   }
 }
