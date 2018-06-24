@@ -136,10 +136,10 @@ export const reduxSocket = (scOptions = {}, _hocOptions = {}) => ComposedCompone
       const {AuthEngine, onDisconnect, socketCluster} = madeHocOptions;
       options = AuthEngine ? {...scOptions, authEngine: new AuthEngine(context.store)} : scOptions;
       hocOptions = {...hocOptionsDefaults, ...madeHocOptions};
-      socket = socketCluster.connect(options);
+      socket = socketCluster.create(options);
       destroyer = () => {
         socket.disconnect();
-        socketCluster.destroy(scOptions);
+        socket.destroy();
         if (onDisconnect) {
           onDisconnect(true, scOptions, madeHocOptions, socket);
         }
